@@ -22,6 +22,16 @@ export async function run() {
       console.log("Could not get pull request number from context, exiting");
       return;
     }
+    /* TODO
+     *
+     * [Assigns labels based on branch names](https://github.com/actions/labeler/pull/203/files)
+     *
+     * - [ ] get list of provided actors
+     * - [ ] if list is nonempty, get actor https://github.com/actions/toolkit/blob/main/packages/github/src/context.ts#L17
+     * - [ ] find actor in list of provided actors
+     * - [ ] if found, add label(s)
+     * - [ ] if not found, do nothing
+     * */
 
     const client: ClientType = github.getOctokit(token);
 
