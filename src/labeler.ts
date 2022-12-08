@@ -25,8 +25,8 @@ export async function run() {
     /* TODO
      *
      * [Assigns labels based on branch names](https://github.com/actions/labeler/pull/203/files)
+     * [Assign label based on status](https://github.com/actions/labeler/pull/79/files)
      *
-     * - [ ] get list of provided actors
      * - [ ] if list is nonempty, get actor https://github.com/actions/toolkit/blob/main/packages/github/src/context.ts#L17
      * - [ ] find actor in list of provided actors
      * - [ ] if found, add label(s)
