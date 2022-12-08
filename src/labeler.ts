@@ -22,12 +22,13 @@ export async function run() {
       console.log("Could not get pull request number from context, exiting");
       return;
     }
+    const actor = getActor();
     /* TODO
      *
      * [Assigns labels based on branch names](https://github.com/actions/labeler/pull/203/files)
      * [Assign label based on status](https://github.com/actions/labeler/pull/79/files)
      *
-     * - [ ] if list is nonempty, get actor https://github.com/actions/toolkit/blob/main/packages/github/src/context.ts#L17
+     * - [x] get actor https://github.com/actions/toolkit/blob/main/packages/github/src/context.ts#L17
      * - [ ] find actor in list of provided actors
      * - [ ] if found, add label(s)
      * - [ ] if not found, do nothing
@@ -79,6 +80,15 @@ function getPrNumber(): number | undefined {
   }
 
   return pullRequest.number;
+}
+
+function getActor(): string[] {
+  const actor = github.context.actor;
+  if (!actor) {
+    return undefined;
+  }
+
+  return actor;
 }
 
 async function getChangedFiles(
